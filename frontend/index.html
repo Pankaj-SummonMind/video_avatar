@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Avatar Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>AI Avatar Video Call</h1>
+    <div>
+        <span>Session ID: <span id="sessionId"></span></span>
+        <span id="statusText"></span>
+        <span id="avatarStatus"></span>
+    </div>
+
+    <div style="display:flex; gap:20px;">
+        <video id="localVideo" autoplay muted playsinline width="320"></video>
+        <video id="remoteVideo" autoplay playsinline width="320"></video>
+    </div>
+
+    <div>
+        <button id="startBtn" onclick="startCall()">Start Call</button>
+        <button id="stopBtn" onclick="stopCall()" disabled>Stop Call</button>
+        <button id="recordBtn" onclick="toggleRecording()"><i class="fas fa-microphone"></i> Start Recording</button>
+        <button onclick="downloadVideo()">Download Recording</button>
+    </div>
+
+    <div>
+        <input type="text" id="messageInput" placeholder="Type a message...">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <div id="chatMessages" style="height:200px; overflow:auto; border:1px solid #ccc; margin-top:10px;"></div>
+
+    <div>
+        <label for="avatarSelect">Select Avatar:</label>
+        <select id="avatarSelect" onchange="selectAvatar()">
+            <option value="professional/model_v1">Professional</option>
+            <option value="casual/model_v1">Casual</option>
+            <option value="friendly/model_v1">Friendly</option>
+            <option value="corporate/model_v1">Corporate</option>
+        </select>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
